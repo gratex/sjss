@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "enum": [
+                "exact string expected"
+            ]
+        }
+    }
+}

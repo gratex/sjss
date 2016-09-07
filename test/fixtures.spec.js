@@ -1,11 +1,12 @@
-/*global describe:true,it:true,	after:true,before:true,afterEach:true,beforeEach:true */
+/*global describe:true,it:true, after:true,before:true,afterEach:true,beforeEach:true */
 var schema = require("../src/sjss.js");
 var assert = require("assert");
 var glob = require("glob");
+var debugSchema = require("debug")("schema");
 
 describe("Simplified Schema Syntax", function() {
 
-   
+
 
 
     // make at least on method, so before gets called
@@ -40,6 +41,7 @@ describe("Simplified Schema Syntax", function() {
             var e = require(data.expected);
             // execute
             var o = schema(i);
+            debugSchema(JSON.stringify(o,null,2));
             // assert
             assert.deepEqual(o, e);
         });

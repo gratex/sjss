@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "books": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "isbn": {
+                        "type": "string"
+                    },
+                    "author": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

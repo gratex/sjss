@@ -28,4 +28,36 @@ instead of this:
 	    }
 	}
 
+Or:
+
+	{
+	    "books": [{
+	        "isbn": "string",
+	        "author": "string"
+	    }]
+	}
+
+instead of this:
+
+	{
+	    "type": "object",
+	    "properties": {
+	        "books": {
+	            "type": "array",
+	            "items": {
+	                "type": "object",
+	                "properties": {
+	                    "isbn": {
+	                        "type": "string"
+	                    },
+	                    "author": {
+	                        "type": "string"
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}	
+
+
 For more samples see test/fixtures	

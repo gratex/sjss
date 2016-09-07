@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/gratex/sjss#readme",
   "devDependencies": {
+    "debug": "^2.2.0",
     "glob": "^7.0.6",
     "mocha": "^3.0.2",
     "traverse": "^0.6.6"
