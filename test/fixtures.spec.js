@@ -1,5 +1,5 @@
 /*global describe:true,it:true, after:true,before:true,afterEach:true,beforeEach:true */
-var schema = require("../src/sjss.js");
+var sjss = require("../src/sjss.js");
 var assert = require("assert");
 var glob = require("glob");
 var debugSchema = require("debug")("schema");
@@ -28,22 +28,31 @@ describe("Simplified Schema Syntax", function() {
         function file2testData(file) {
             return {
                 input: file,
-                expected: file.replace(".in.", ".out.")
+                expected: file.replace(".in.", ".out."),
+                data: file.replace(".in.", ".data.")
             }
         }
     });
     // then this will become many it() registered in before();
-    function _it(data) {
+    function _it(test) {
 
-        return it("test for " + data.input, function() {
+        return it("test for " + test.input, function() {
             // load
-            var i = require(data.input);
-            var e = require(data.expected);
+            var sjssSchema = require(test.input);
+            var jsonSchema = require(test.expected);
+
+            try {
+                // optional data, then e is expected to be a function
+                var payload = require(test.data);
+                assert(typeof sjssSchema === "function");
+                sjssSchema = sjssSchema(payload);
+
+            } catch (ex) {}
             // execute
-            var o = schema(i);
-            debugSchema(JSON.stringify(o,null,2));
+            var generatedSchema = sjss(sjssSchema);
+            debugSchema(JSON.stringify(generatedSchema, null, 2));
             // assert
-            assert.deepEqual(o, e);
+            assert.deepEqual(generatedSchema, jsonSchema);
         });
     }
 });
