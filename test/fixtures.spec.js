@@ -40,14 +40,17 @@ describe("Simplified Schema Syntax", function() {
             // load
             var sjssSchema = require(test.input);
             var jsonSchema = require(test.expected);
+            if (typeof sjssSchema === "function") {
 
-            try {
                 // optional data, then e is expected to be a function
-                var payload = require(test.data);
-                assert(typeof sjssSchema === "function");
-                sjssSchema = sjssSchema(payload);
+                var payload;
+                try {
+                    payload = require(test.data);
+                } catch (ex) {}
 
-            } catch (ex) {}
+                sjssSchema = sjssSchema(payload);
+            }
+
             // execute
             var generatedSchema = sjss(sjssSchema);
             debugSchema(JSON.stringify(generatedSchema, null, 2));
