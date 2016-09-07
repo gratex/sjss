@@ -4,6 +4,7 @@ var assert = require("assert");
 
 describe("sjss (Simplified JSONSchema Syntax)", function() {
 
+    
     it("complex sample", function() {
         var sjssSyntax = {
             a: 'integer',
