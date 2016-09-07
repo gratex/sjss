@@ -1,0 +1,32 @@
+{
+  "name": "sjss",
+  "version": "1.0.0",
+  "description": "Simplified JSON Schema syntax, inspired by <https://www.npmjs.com/package/strummer> but much lighter.",
+  "main": "sjss.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --recursive test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gratex/sjss.git"
+  },
+  "keywords": [
+    "JSON",
+    "Schema",
+    "builder",
+    "DSL"
+  ],
+  "author": "dojo@gratex.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gratex/sjss/issues"
+  },
+  "homepage": "https://github.com/gratex/sjss#readme",
+  "devDependencies": {
+    "mocha": "^3.0.2",
+    "traverse": "^0.6.6"
+  }
+}
