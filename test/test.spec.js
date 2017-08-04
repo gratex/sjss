@@ -91,4 +91,16 @@ describe("sjss (Simplified JSONSchema Syntax)", function() {
             }
         }, "each array shell be generated with specified properties");
     });
+    it("array - as root", function() {
+        var r = sjss([{code:"string"}]);
+        assert.deepEqual(r, {
+            type: 'array',
+            items: {
+                type:'object',
+                properties:{
+                    code: {type:'string'}
+                }
+            }
+        }, "");
+    });
 });
