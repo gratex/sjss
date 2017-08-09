@@ -13,6 +13,13 @@ write this:
 	    "b": "string"
 	}
 
+	// or even this (in JS)
+
+	{
+	    "a": Number,
+	    "b": String
+	}
+
 
 instead of this:
 

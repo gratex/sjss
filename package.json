@@ -1,6 +1,6 @@
 {
   "name": "sjss",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simplified JSON Schema syntax, inspired by <https://www.npmjs.com/package/strummer> but much lighter.",
   "main": "sjss.js",
   "directories": {
